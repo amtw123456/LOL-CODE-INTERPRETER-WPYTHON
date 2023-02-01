@@ -1,0 +1,166 @@
+11/29/22[7:21pm - 9:11pm]  Modified syntax_analyzer.py to print multiple display_varident_abstraction
+
+- printing of yarn finally can now print multiple string(yarns) in one VISIBLE call
+
+11/29/22[9:11pm - 1:43am] Modified lexer.py to get linebreak (\n)
+
+- kaya ko minodify na nakukuha un line break for syntax analysis
+  we can use it to track un kung anong line nagkakaeerror
+
+11/29/22[10:39pm - 10:46pm] Created symbol_table.py for the
+- for the identifiers entries and its values
+
+11/30/22[2:30am - 3:30am] Modified syntax analyzer to catch undeclared identifiers and visible error catching
+
+- added visible error prompt error prompt added "variable identifier doesn't exist!"
+  and added global variable currentLine to keep track of the current line which increases
+  depending if the newline lexeme is detected.
+
+11/30/22[2:30am - 3:30am] Modified syntax analyzer to declare variable declarations and assignments
+
+- added variable declarations functions and assignments and also updates to the symbol table,
+  allows printing or of VARIDENTS in VISIBLE
+
+12/1/22[1:30pm - 1:50pm] Modified Lex types to include arrays involving <expr>, <addsub>, <minmax>, and <equality>
+
+- added an array called EXPRESSIONS that contain all syntaxes under <expr>
+- added an array called OPERATIONS and MULDIV that contains all syntaxes under <addsub> and <muldiv> respectively.
+- added an array called EQUALITY and MINMAX that contains all syntaxes under <equality> and <minmax> respectively.
+
+12/1/22[1:50pm - //] Refactoring code by utilizing Tokens.pop(0) to iterate through the list.
+
+- added Tokens.pop(0) on every lexClassification comparison for consistency.
+- added an incomplete expression_abstraction function.
+- added an elif statement in program_abstraction to catch END_PROGRAM. (Also added a checker to determine if there are comments after KTHXBYE)
+- modified statement_abstraction to use a while-loop instead of recursion.
+- modified display_varident_abstraction to return the variable value instead of None
+- added a printed array in printable_abstraction that should include all strings to be printed. (Might be useful in semantic analyzer?)
+- removed error_types from abstractions and instead print error messages then quit().
+- added linebreak_abstraction on functions that check whether a Token is a NEWLINE.
+
+12/1/22 [11:00pm - 11:53pm] Creating OPERATIONS syntax and semantic analyzers
+- added AN as a lex type in lex_type and lexers.
+- added addition, subtraction, multiplication, and division functions.
+- each function returns the corresponding values.
+- each function can be used recursively.
+
+12/1/22[5:11pm - 11:59pm] Modified syntax_analyzer.py and created a test.py for testing for abstraction creation
+- added test.py for checking lexemes
+- fixed grammar
+- redo changes in grammar
+- changes in grammar for expressions and it turned them operations
+- Change lextypes.py and lexer.py to accommodate "AN" keyword
+
+12/2/22[11:02pm - 11:18pm] Modified syntax_analyzer.py, gui.py added minimum, maximum, modulo abstraction functions and some fixes
+- added minimum, maximum, modulo functions
+- fixed value function which can now return VARIDENT values
+- changed some functions names to include the word abstraciton and turned them into camel case naming convention
+- added minimum, maximum, modulo function calls in operations_abstraction
+- added a display area for symbol_table entries and values as well as some modifications in some functions in GUI file
+- modified variable_declaration_abstraction function which can now return values from expression assignments
+
+12/2/22[11:31pm - 12:15pm] Modified lextypes.py, lexer.py, syntax_analyzer.py and symbol_table.py currently working on boolean expressions abstraction functions, code refactoring
+- modified lextypes.py and added comments on finished abstraction functions for easy
+  tracking remove when everything is finished.
+- modified lextypes.py created BOOLEAN_EXPRESSIONS list and put all logical operators in it
+- some changes in grammar scratch https://docs.google.com/document/d/1FB21Asg_8KjdPda5u1M9x1Fqs92ykO3nElASFCK19CM/edit
+- added default value for symbol_table {"IT":"NOOB"}
+- changed in lexer.py where troof condition goes first before varident (so WIN|FAIL lexemes wont be classified as VARIDENTS)
+
+12/3/22[8:22pm - 10:36pm] Changes in syntax_analzyer.py, lexer.py and lextype.py modifications of troof functions
+- added MKAY_KEYWORD in lextypes and some modifications in lexer.py
+- added code blocks for boolean expressions functions
+- finished boolean expressions functions (AND, OR, XOR, NOT_OF, ALL, ANY)
+- added new .lol test case files
+- added boolean_expression_abstraction function in statement_abstraction function
+- modified lextypes.py updated finished KEY_WORDS
+- JUST A COMMENT PLEASE ADD SOME ERROR CHECKINGS IN boolean_expression_abstraction and statement_abstraction
+
+12/3/22[10:45pm - 11:55pm] Changes in syntax_analyzer.py started working on variable_assignment_abstraction and modification of variable_declaration_abstraction
+- finished variable_assignment_abstraction allows varident, expr, yarn to the VARIDENT
+- modification in statement_abstraction function to allow variable_assignment_abstraction function call
+- modification of variable_declaration_abstraction allows troof, yarn, numbar, and numbr assignments
+
+12/4/22[10:00am - 7:07pm] Changes in syntax_analyzer.py, lextypes.py, gui.py started working on comparison_abstraction, switch_abstraction
+                          and some modifications in GUI symbol_table now show value type some fixes
+- added DATA_TYPES list in lextypes.py containing [INTEGER, FLOAT, STRING, BOOLEAN]
+- testing if boolean_expression_abstraction is still needed
+- changes in gui.py added a new tabke for symbol_table where value of symbols can now be classified
+- added type_identifier.py containing function determining value type
+- finished functions for equality_abstractions (comparison_abstraction)
+- Deprecated equality_abstractions both_saem and diffrint function call switch to operations_abstraction to allow operator expressions in equality operations
+- started working on switch_abstraction and added a new .lol test file
+- IT variable(initial variable) is now changeable and can now be used for IF-THEN and SWITCH CASES and LOOPS varidents, expr can now be assigned to it
+  IT can only be initialized if the statement is now being assigned or being used for other things
+- IT variable and modification in value_abstraction now allows all type of data to be returned
+- started working on switch statements meaning switch_abstraction and omg_abstraction
+- created a new abstraction called conditional_statement_abstraction for usage for switch cases
+- switch statement is now working but not yet fully funcitonal?
+
+12/4/22 [8:00pm - 1:30am] Modified syntax_analyzer.py, lextypes.py, if else statements started
+- moved EQUAL and NOT_EQUAL to boolean_expression_abstraction.
+- changed value_abstraction to boolean_value_abstraction in boolean_expression_abstraction.
+- implemented equality_abstraction to return the values required for the operands of EQUAL and NOT_EQUAL.
+- added a "\" to O RLY in lex found in lexer.py.
+- implemented If-Else statement, however, this does not contain MEBBE.
+
+12/5/22 [10:00am - ??] syntax_analyzer.py, comments and multiline comments started and started error_type checkings
+- started working on comments_abstractions
+- single line comment finished
+- multiline_comment_abstraction started
+- figured out nested switch cases works
+- added new .lol test case file
+- multiline_comment_abstraction will not be finished cause of lexer
+- started error type checkings
+- GIMMEH now works, some error checkings added for COMMENTS, GIMMEH, VARIABLE_ASSIGNEMNT
+- added new LIST in lextypes called TYPECASTING_KEYWORDS = [TYPECAST, NEW_TYPE]
+
+12/7/22 [1:00am - 1:20am] Fixed (?) if_abstraction
+- added a checker to see if the else found in the while loop is a nested if statement.
+- also revamped the while loop to check for the different possibilites when checking each token.
+
+12/7/22 [8:30am - 9:30am] error checking added
+- added error checking, yet to check if there are lapses
+- terminates program when error has been found
+- fixed GUI borders, made to fit typical 15.6" laptop screens
+- found error when running test cases provided by Ma'am Berna
+- created folders for test cases
+
+-12/7/22 [8:30am - 9:30am] Added multiline comment, and some fixes
+- lexemes table includes lexemes found in the multiline commment error
+- gui modified to clear data everytime a new file is opened
+
+12/10/22 [11:00pm - 11:59pm] Added loop_abstraction
+- fixed error_type checking in if-statement.
+- typecasted data1 and data2 in both_same and diffrint abstractions.
+- added checker for both_same and diffrint in equality_abstraction.
+- removed secondary AN_Keyword checker in both_same and diffrint abstractions.
+- added loop_statement_abstraction that functions similar to statement_abstraction but instead checks for list length rather than END_PROGRAM.
+- implemented loops using WILE or TIL.
+
+12/11/22 [9:00pm - 2:00am] Added listboxes on gui and some modifications on width and height of gui and some fixes and might be final ##COMMIT## :)))
+- Added function that creates listboxes, and initializes console_output list
+- Added listboxes to act as a terminal
+- functional terminal that cna only print in the terminal
+- added to all function paramters Consol_Output for listboxes use
+- some modifcations and somes fixes
+- added SMOOSH functionality
+- added TYPECASTING functionality
+- added some new functions
+- added concatenation_abstraction in printable_abstraction
+- added concatenation_abstraction in statement_abstraction
+- implemented implicit typecasting in concatenation_abstraction
+- modified statement_abstractions, conditional_statement_abstraction, loop_statement_abstraction adding SMOOSH and TYPECAST functionality
+- CREATING typecast_abstraction
+- moved type_literal to be checked first in lexer.py
+- some fixes on GUI positioning
+- modifiable GUI
+- added clear button on GUI (CLEARS ALL DATA FROM SYMBOL TABLE AND LEXEME TABLE)
+- Modifiable text editor
+- Added README.MD and contributors.txt
+- VISIBLE can now print with AN(SEPARATOR)
+- fixed MAX function now returns the correct maximum value
+- added some error checking but is now hard to trace so error checking is very wonky
+- Fixed comparison function now returns right answer
+- changed listbox bg to black and fg text color to orange
+- Tested all required test cases 
